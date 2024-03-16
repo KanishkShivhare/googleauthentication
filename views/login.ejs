@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>title</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font: 100% Arial, sans-serif;
+            text-decoration: none;
+            border: none;
+        }
+
+        ::placeholder {
+            text-transform: capitalize;
+        }
+
+        /* Remove default Microsoft Edge eye icon */
+        ::-ms-reveal {
+            display: none;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(45deg, #f0f4ff, #f9faff);
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .container {
+            width: clamp(300px, 95%, 500px);
+            min-height: 100vh;
+            background: #fefefe;
+            border: 1.5px solid rgba(2, 4, 3, 0.3);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .forms {
+            width: 100%;
+        }
+
+        .content {
+            display: none;
+            width: 100%;
+            padding: 20px 35px;
+            text-align: center;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        .title {
+            font-size: 25px;
+            font-weight: bold;
+            margin: 10px 0;
+            text-transform: capitalize;
+        }
+
+        .continue-button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            text-transform: capitalize;
+            width: 100%;
+            margin: 10px 0 20px;
+            padding: 8px 0;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: rgba(2, 4, 3, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+        }
+
+        .continue-button .logo {
+            width: 18px;
+            margin-right: 8px;
+        }
+
+        .field {
+            border-top: 2px solid rgba(2, 4, 3, 0.2);
+        }
+
+        .field legend {
+            font-size: 18px;
+            padding: 0 15px;
+            margin: 15px 0;
+        }
+
+        .login-input {
+            display: inline-flex;
+            width: 100%;
+            margin: 10px 0;
+            background: #f0f0f0;
+            border-radius: 6px;
+        }
+
+        .login-input:focus-within {
+            outline: 1.5px solid rgba(2, 4, 3, 0.5);
+        }
+
+        .login-input .icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 35px;
+            height: 100%;
+            background: transparent;
+        }
+
+        #loginEmail, #loginPassword, #firstUsername, #lastUsername, #signUpEmail, #phoneNumber, #userPassword, #fixPassword {
+            width: 100%;
+            height: 35px;
+            padding: 0 5px;
+            background: transparent;
+        }
+
+        #loginEmail:focus, #loginPassword:focus, #firstUsername:focus, #lastUsername:focus, #signUpEmail:focus, #phoneNumber:focus, #userPassword:focus, #fixPassword:focus {
+            outline: none;
+        }
+
+        .adjust {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+        }
+
+        label[for="agree"] {
+            float: left;
+            font-size: 13px;
+            margin: 8px 0;
+        }
+
+        .span {
+            color: green;
+            font-weight: 600;
+        }
+
+        .signin {
+            font-size: 16px;
+            text-transform: capitalize;
+            width: 100%;
+            margin: 15px 0;
+            padding: 6px 0;
+            background: #ffffff;
+            border: 1.5px solid green;
+            border-radius: 8px;
+        }
+
+        .toggle-button {
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: capitalize;
+            width: 100%;
+            margin-top: 15px;
+            padding: 6px 0;
+            color: #ffffff;
+            background: green;
+            border-radius: 8px;
+            box-shadow: rgba(2, 4, 3, 0.15) 0px 3px 3px 0px;
+        }
+    </style>
+</head>
+<body>
+<section class="container">
+    <div class="forms">
+        <!-- sign in -->
+        <div class="content active">
+            <h2 class="title">sign in</h2>
+            <a href="/login/federated/google">
+            <button class="continue-button">
+                <img src="https://cdn.iconscout.com/icon/free/png-512/free-google-160-189824.png?f=webp&w=256" alt="Google logo png from iconscout.com" class="logo" />
+                continue with google
+            </button>
+        </a>
+
+            <fieldset class="field">
+                <legend>or</legend>
+                <div class="login-input">
+                    <label for="loginemail"><i class="icon"></i></label>
+                    <input type="email" id="loginEmail" placeholder="email" />
+                </div>
+                <div class="login-input">
+                    <label for="loginpassword"><i class="icon"></i></label>
+                    <input type="password" id="loginPassword" placeholder="password" />
+                    <i class="fa-eye"></i>
+                </div>
+            </fieldset>
+
+            <div class="adjust">
+                <label for="remember">
+                    <input type="checkbox" id="remember" /> remember me
+                </label>
+                <a href="#">forgot password</a>
+            </div>
+
+            <button type="submit" class="signin">sign in</button>
+
+            <p class="text">not have account?</p>
+
+            <button class="toggle-button">register</button>
+        </div>
+
+        <!-- sign up -->
+        <div class="content">
+            <h2 class="title">sign up</h2>
+
+            <fieldset class="field">
+                <legend>register</legend>
+                <div class="login-input">
+                    <label for="firstusername"><i class="icon"></i></label>
+                    <input type="text" id="firstUsername" placeholder="first name" />
+                </div>
+                <div class="login-input">
+                    <label for="lastusername"><i class="icon"></i></label>
+                    <input type="text" id="lastUsername" placeholder="last name" />
+                </div>
+                <div class="login-input">
+                    <label for="loginemail"><i class="icon"></i></label>
+                    <input type="email" id="signUpEmail" placeholder="email" />
+                </div>
+                <div class="login-input">
+                    <label for="phone"><i class="icon"></i></label>
+                    <input type="tel" id="phoneNumber" placeholder="123-456-789" />
+                </div>
+                <div class="login-input">
+                    <label for="userpassword"><i class="icon"></i></label>
+                    <input type="password" id="userPassword" placeholder="password" />
+                    <i class="fa-eye"></i>
+                </div>
+                <div class="login-input">
+                    <label for="fixpassword"><i class="icon"></i></label>
+                    <input type="password" id="fixPassword" placeholder="confirm password" />
+                    <i class="fa-eye"></i>
+                </div>
+
+                <label for="agree">
+                    <input type="checkbox" id="agree" /> I have read and agree to the
+                    <a href="#" class="span">Terms and Conditions</a>
+                </label>
+
+                <button type="submit" class="signin">register</button>
+            </fieldset>
+
+            <p class="text">have account?</p>
+            <button class="toggle-button">login</button>
+        </div>
+    </div>
+</section>
+</body>
+<script>
+    const contents = document.querySelectorAll(".forms .content");
+    const buttons = document.querySelectorAll(".toggle-button");
+    const inputs = document.querySelectorAll("input");
+
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            inputs.forEach((input) => (input.value = ""));
+
+            contents.forEach((content) => content.classList.toggle("active"));
+        });
+    });
+
+    inputs.forEach((input) => {
+        input.autocomplete = "off";
+        input.spellcheck = false;
+        input.required = true;
+    });
+
+    document.querySelectorAll("button[type='submit']").forEach((submit) => {
+        submit.addEventListener("click", () => {
+            inputs.forEach((input) => (input.value = ""));
+        });
+    });
+
+    document.querySelectorAll(".fa-eye").forEach((eye) => {
+        eye.addEventListener("click", () => {
+            const passwordInput = eye.previousElementSibling;
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                eye.classList.remove("fa-eye");
+                eye.classList.add("fa-eye-slash");
+            } else {
+                passwordInput.type = "password";
+                eye.classList.remove("fa-eye-slash");
+                eye.classList.add("fa-eye");
+            }
+        });
+    });
+</script>
+</html>
